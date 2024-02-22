@@ -13,11 +13,11 @@ studentData inputdata() {
     studentData student;
     
     for (int i = 0; i < 2; i++) {
-        cout << "Enter the student name " << i+1 << " : " << endl;
+        cout << "Enter the student name " << i+1 << endl;
         cin >> student.name[i];
 
         for (int j = 0; j < 3; j++) {
-            cout << "Enter the marks (course) " << j+1 << " : ";
+            cout << "Enter the marks (course) " << j+1<<" :";
             cin >> student.marks[j];   
         }
     }

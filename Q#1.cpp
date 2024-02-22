@@ -62,6 +62,7 @@ int main()
 
 void Creating_matrices1(int **&matrix1, int &row1, int &col1)                // fucntion of creating matirx1 
 {
+    cout<<"Enter the rows and coloumn according to the rules of matrix :"<<endl;
     cout << "Enter the num of rows  for the matrix(1): " << endl;
     cin >> row1;
 
