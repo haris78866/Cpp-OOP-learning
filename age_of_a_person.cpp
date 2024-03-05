@@ -14,3 +14,5 @@ main()
 	else
 	cout<<"\nSenior";
 }
+
+
