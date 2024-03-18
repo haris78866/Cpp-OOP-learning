@@ -1,81 +1,134 @@
 #include<iostream>
 #include<string>
 using namespace std;
-/*
+
 class info {
-
 private:
-int id;
-
+string *name;
+string *city;
+int *age;
 public:
 
-void test(int x){
-id=x;
+// defalult destructer
+info(){
+name=new string;
+city=new string;
+age=new int;
+}
+
+// paramterized consrtuceter
+info(string name,string city,int age){
+this->name=new string(name);
+this->city=new string(city);
+this->age=new int(age);
+
+
+cout<<"Constructer is eexecutive :"<<endl;
+}
+
+~info(){
+cout<<"Destructer is executive :"<<endl;
+delete name;
+delete city;
+delete age;
+}
+ 
+ // getters
+ 
+string getname(){
+return *name;
+}
+
+string getcity(){
+return *city;
+}
+
+int getage(){
+return *age;
+}
+
+// setters 
+void setname(string name){
+*this->name=name;
+}
+
+void setcity(string city){
+*this->city=city;
+}
+
+void setage(int age){
+*this->age=age;
 }
 
 void display(){
-cout<<"ID : "<<id<<endl;
-}
-};
-
-
-int main(){
-info obj1;
-
-obj1.test(9);
-obj1.display();
-
-// making its copy constructer
-info obj2;
-obj2=obj1;
-
-obj2.display();
-
-
-return 0;
-}
-*/
-
-class info {
-
-private:
-int x,y;
-
-public:
-
-info(int x1,int y1){
-x=x1;
-y=y1;
-}
-
-// copy constructer 
-
-info(const info &p1){
-x=p1.x;
-y=p1.y;
-}
-
-int getx(){
-return x;
-}
-
-int gety(){
-return y;
+cout<<"Name :"<<*name<<endl;
+cout<<"City :"<<*city<<endl;
+cout<<"Age:  "<<*age<<endl;
 }
 
 };
 
-
 int main(){
 
-info p1(10,20);
 
-cout<<"p1.x "<<p1.getx()<<"p1 .y "<<p1.gety()<<endl;
+int no;
 
-info p2;
-p2=p1;
+cout<<"Enter the no of person :"<<endl;
+cin>>no;
 
-cout<<"p2.x "<<p2.getx()<<"p2 .y "<<p2.gety()<<endl;
+info obj1[no];
+
+string name,city;
+int age;
+
+for(int i=0;i<no;i++){
+cout<<"Enter your name :"<<endl;
+cin>>name;
+obj1[i].setname(name);
+
+cout<<"Enter your city :"<<endl;
+cin>>city;
+obj1[i].setcity(city);
+
+cout<<"Enter your age :"<<endl;
+cin>>age;
+obj1[i].setage(age);
+}
+
+
+for(int i=0;i<no;i++){
+cout<<"Data of Object 1"<<endl;
+obj1[i].display();
+}
+// here am making another object 
+
+
+// now making its shallow copy 
+
+info obj2[no];
+for(int i=0;i<no;i++){
+obj2[i]=obj1[i];
+}
+
+for(int i=0;i<no;i++){
+cout<<"Data of object 2 : "<<endl;
+obj2[i].display();
+}
 
 return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
