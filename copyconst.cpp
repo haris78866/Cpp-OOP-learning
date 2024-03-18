@@ -2,131 +2,100 @@
 #include<string>
 using namespace std;
 
-class info {
-private:
-string *name;
-string *city;
-int *age;
-public:
-
-// defalult destructer
-info(){
-name=new string;
-city=new string;
-age=new int;
-}
-
-// paramterized consrtuceter
-info(string name,string city,int age){
-this->name=new string(name);
-this->city=new string(city);
-this->age=new int(age);
-
-
-cout<<"Constructer is eexecutive :"<<endl;
-}
-
-~info(){
-cout<<"Destructer is executive :"<<endl;
-delete name;
-delete city;
-delete age;
-}
- 
- // getters
- 
-string getname(){
-return *name;
-}
-
-string getcity(){
-return *city;
-}
-
-int getage(){
-return *age;
-}
-
-// setters 
-void setname(string name){
-*this->name=name;
-}
-
-void setcity(string city){
-*this->city=city;
-}
-
-void setage(int age){
-*this->age=age;
-}
-
-void display(){
-cout<<"Name :"<<*name<<endl;
-cout<<"City :"<<*city<<endl;
-cout<<"Age:  "<<*age<<endl;
-}
-
-};
+void tak_matrix1(int **matrix1,int row1,int col1 );
+void tak_matrix2(int **matrix2,int row2,int col2 );
 
 int main(){
 
+int row1,row2;
+int col1,col2;
 
-int no;
+cout<<"Enter the row1 :"<<endl;
+cin>>row1;
 
-cout<<"Enter the no of person :"<<endl;
-cin>>no;
+cout<<"Enter the row2 :"<<endl;
+cin>>row2;
 
-info obj1[no];
+cout<<"Enter the col 1 :"<<endl;
+cin>>col1;
 
-string name,city;
-int age;
+cout<<"Enter the col2 :"<<endl;
+cin>>col2;
 
-for(int i=0;i<no;i++){
-cout<<"Enter your name :"<<endl;
-cin>>name;
-obj1[i].setname(name);
+int **matrix1;
+int **matrix2;
 
-cout<<"Enter your city :"<<endl;
-cin>>city;
-obj1[i].setcity(city);
-
-cout<<"Enter your age :"<<endl;
-cin>>age;
-obj1[i].setage(age);
-}
+tak_matrix1(matrix1,row1,col1 );
+tak_matrix2(matrix2,row2,col2 );
 
 
-for(int i=0;i<no;i++){
-cout<<"Data of Object 1"<<endl;
-obj1[i].display();
-}
-// here am making another object 
-
-
-// now making its shallow copy 
-
-info obj2[no];
-for(int i=0;i<no;i++){
-obj2[i]=obj1[i];
-}
-
-for(int i=0;i<no;i++){
-cout<<"Data of object 2 : "<<endl;
-obj2[i].display();
-}
-
+for(int i=0;i<row1;i++){
+  delete matrix1[i];
+  delete matrix2[i];
+  }
+delete[] matrix1;
+delete[] matrix2;
+  
 return 0;
 }
 
 
 
+void tak_matrix1(int **matrix1,int row1,int col1 )
+{
+matrix1=new int*[row1];
+// dynamically allocation 
+for(int i=0;i<2;i++){
+matrix1[i]=new int[col1];
+}
 
 
+cout<<"Enter elements in arr1 :"<<endl;
+for(int i=0;i<row1;i++){
+  for(int j=0;j<col1;j++){
+    cin>>matrix1[i][j];
+    }
+}
+
+cout<<"Elements in the arr1 :"<<endl;
+for(int i=0;i<row1;i++){
+  for(int j=0;j<col1;j++){
+   cout<<matrix1[i][j]<<" ";
+    }
+   cout<<endl;
+  }     
+} 
+ 
+ 
+void tak_matrix2(int **matrix2,int row2,int col2 )
+{
+matrix2=new int*[row2];
+// dynamically allocation 
+for(int i=0;i<2;i++){
+matrix2[i]=new int[col2];
+}
 
 
+cout<<"Enter elements in arr2 :"<<endl;
+for(int i=0;i<row2;i++){
+  for(int j=0;j<col2;j++){
+    cin>>matrix2[i][j];
+    }
+}
 
 
+cout<<"Elements in the arr 2 :"<<endl;
 
+for(int i=0;i<row2;i++){
+  for(int j=0;j<col2;j++){
+   cout<<matrix2[i][j]<<" ";
+    }
+   cout<<endl;
+  }     
+} 
+  
+ 
+ 
 
 
 
