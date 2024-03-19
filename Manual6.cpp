@@ -163,21 +163,6 @@ class circle{
 int *radius;
 
 public:
-void setradius(int r){
-*radius=r;
-}
-
-
-// getter 
-int getradius(){
-return *radius;
-}
-
-
-void display(){
-cout<<"Radius  : "<<*radius<<endl;
-}
-
 circle(){
 //  you have  to clear 
 radius=new int(0);
@@ -195,6 +180,23 @@ cout<<"destrucetr is excutive : "<< endl;
 delete radius;
 //free(radius);
 }
+
+// getter 
+int getradius(){
+return *radius;
+}
+
+void setradius(int r){
+*radius=r;
+}
+
+
+
+
+void display(){
+cout<<"Radius  : "<<*radius<<endl;
+}
+
 
 };
 
