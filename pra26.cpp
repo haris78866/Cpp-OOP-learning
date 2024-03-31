@@ -2,66 +2,86 @@
 #include<string>
 using namespace std;
 
-class fam {
-public:
-string name;
-int age;
-string post;
+class info {
+protected:
+string *name;
+string *post;
 
-// default constructer
- fam(){
+
+// constrcuter
+info(){
+name=new string;
+post=new string;
 }
 
-// paramerterized constucter
-fam(string n, string p, int a) : name(n),post(p),age(a){
+
+~info(){
+delete name;
+delete post;
 }
+
 
 void display(){
-cout<<"Name :"<<name<<endl;
-cout<<"Post :"<<post<<endl;
-cout<<"Age  :"<<age<<endl;
+cout<<"Name :"<<*name<<endl;
+cout<<"Post :"<<*post<<endl;
 }
 
 };
 
-
-class boy   :  public  fam  {
+class future : public info {
 public:
-string education;
+int *age;
+
+future(){
+age=new int;
+}
+
+~future(){
+delete age;
+}
+
+// getters
+ string getname(){
+return *name;
+}
+
+string getpost(){
+return *post;
+}
+
+// stters 
 
 
-boy (string n, string p ,int a , string edu) : fam(n,p,a) ,education(edu){
+int getage(){
+return *age;
+}
+
+void setname(string name){
+*this->name=string(name);
+}
+
+void setpost(string post){
+*this->post=string(post);
+}
+
+void setage(int age){
+*this->age=int(age);
 }
 
 void display(){
-fam :: display();
-cout<<"Education :"<<education<<endl;
+info :: display();
+cout<<"Age :"<<*age<<endl;
 }
-
-};
-
-
-class girl : public  boy {
-public: 
-string status;
-int child;
- 
-girl(string n,string p,int a,string edu, string sta, int ch) :  boy(n,p,a,edu) , status(sta), child(ch) {
-}
-
-void display(){
-boy :: display ();
-cout<<"Status :"<<status<<endl;
-cout<<"Child  :"<<child<<endl;
-} 
 
 };
 
 int main(){
 
-girl   g1("Haris","CS",20,"Undergraduate","Single",0);
-
-g1.display();
+future p1;
+p1.setname("Haris");
+p1.setpost("CS");
+p1.setage(20);
+p1.display();
 
 
 return 0;
