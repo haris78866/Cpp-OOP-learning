@@ -37,6 +37,6 @@ for(int i=0;i<no;i++){
 cout<<"Index "<<i+1<<" : "<<arr[i]<<" "<<endl;
 }
 
-}
+
 
 
