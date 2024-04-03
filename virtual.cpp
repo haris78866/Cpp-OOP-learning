@@ -22,7 +22,7 @@ public:
     checking(string n, double a) : Account(n), amount(a) {
     }
 
-    void display() override {
+    void display()  {
         Account::display();
         cout << "Amount: " << amount << endl;
     }
