@@ -36,7 +36,7 @@ cout<<"Elemets in the array :"<<endl;
 for(int i=0;i<no;i++){
 cout<<"Index "<<i+1<<" : "<<arr[i]<<" "<<endl;
 }
-
+..
 
 
 
