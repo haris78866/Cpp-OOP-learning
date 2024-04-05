@@ -1,4 +1,4 @@
-                                          // dynamically creating a class (taking variabe dyanmically)
+//                                          // dynamically creating a class (taking variabe dyanmically)
 #include<iostream>
 #include<string>
 using namespace std;
