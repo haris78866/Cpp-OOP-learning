@@ -39,3 +39,4 @@ cout<<area[i]<<endl;
 
 }
 
+//
