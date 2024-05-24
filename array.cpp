@@ -1,27 +1,22 @@
+                                                   // arrays  
 #include<iostream>
 #include<string>
-
 using namespace std;
 
-int main()
-{
-string name="haris";
 
-cout<<"Name :"<<name<<endl;
+int main(){
+int arr[5];
 
-cout<<"Size :"<<name.size()<<endl;
-
-cout<<"at 4 :"<<name.at(4)<<endl;
-name=name+" shahzad";
- 
-cout<<"Name :"<<name<<endl;
- 
-cout<<"haris "<<name.append(" haris")<<endl;
-
-cout<<"Lenght :"<<name.length()<<endl;
-cout<<"lenght :"<<name.size()<<endl;
+cout<<"Enter the elements in the array :"<<endl;
+for(int i=0;i<5;i++){
+cin>>arr[i];
+}
 
 
- return 0;
- }
+cout<<"Elements in the array :"<<endl;
+for(int i=0;i<5;i++)
+cout<<"Index "<<i+1<<" : "<<arr[i]<<endl;
 
+
+return 0;
+}
