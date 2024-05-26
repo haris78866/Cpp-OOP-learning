@@ -4,27 +4,31 @@ using namespace std;
 
 
 int main(){
-int arr[2][2]={{1,2},{1,2}};
 
 
+int (*ptr)[2];
+int arr[2][2]={ {1,2} ,{1,2} };
 
-cout<<"Elements in the array : "<<endl;
-for(int i=0;i<2;i++){
-  for(int j=0;j<2;j++){
-  cout<<arr[i][j]<<" ";
-  }
-cout<<endl;
-}
+ptr=arr;
 
 for(int i=0;i<2;i++){
    for(int j=0;j<2;j++){
-  cout<<"Array ["<<i<<"]"<<"["<<j<<"] "<<"Adress "<<(*arr + i)+j<<" Content : "<<*((*arr+i)+j)<<endl;
-  }
+    cout<<arr[i][j]<<" ";
+    }
+cout<<endl;
 }
 
 
+for(int i=0;i<2;i++){
+   for(int j=0;j<2;j++){
+       cout<<"Adress "<<*(ptr+i) + j<< "  Content "<<*((*ptr + i)+ j)<<endl;
+       }
+    }
+      
 
 
 return 0;
 }
+
+
 
