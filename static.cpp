@@ -3,148 +3,198 @@
 using namespace std;
 
 
- // instance variable  (that uses operater with the class) 
- /*
-class  animal {
-
-public: 
-string species;
-
-// constructer
-animal (string species){
-this->species=species;
-}
-
-};
-
-int main(){
-
-animal *lion=new animal("sherry");
-animal *tiger=new animal("tarzon");
-
-
-cout<<"lion  : "<<lion->species<<endl;
-cout<<"Tiger : "<<tiger->species<<endl;
-
-return 0;
-}
-
-*/
-
-// The concept of static variable 
-
 /*
-class  animal {
-
-public: 
-string species;
-static  int total;
-
-const string planet ="Earth";
-
-// constructer
-animal (string species){
-this->species=species;
-total++;
-}
-
-
-~animal(){
-total--;
-}
-
-};
-
-// we can not use this  inside the class (give an error)   
-// if we use const variable instead  static then we can use inside the class 
-int animal :: total=0;
-
-int main(){
-
-animal *lion=new animal("sherry");
-animal *tiger=new animal("tarzon");
-
-
-cout<<"lion  : "<<lion->species<<endl;
-cout<<"Tiger : "<<tiger->species<<endl;
-cout<<"Total : "<<animal :: total<<endl;
-
-delete lion;
-delete tiger;
-
-cout<<"Total : "<<animal :: total<<endl;
-
-
-return 0;
-}
-
-*/
-
-
-// static member function  
-
-
-class info {
-
+class emp{
 private:
-int length;
-static int total;
+string name;
+static int count;
 
 public:
 
-// constructer
-info (int length){
-this->length=length;
-total++;
-}
-
-~info(){
-cout<<"Destructer is exceuting : "<<endl;
-total--;
-}
-
-int area(){
-return length*length;
-}
-
-int width(){
-return length+length;
+emp(string name):name(name){
+count++;
 }
 
 
-static int get_total(){
-return total;
+static int getcount(){
+return count;
 }
+
+
+void print(){
+cout<<"Name  : "<<name<<endl;
+}
+
 
 };
 
-int info :: total =0;
+int emp :: count=0;
+
 
 int main(){
-// square 1
-info square1(5);
-
-cout<<"Area  : "<<square1.area()<<endl;
-cout<<"Width : "<<square1.width()<<endl;
 
 
-// we have to ways to call static member fun 
-cout<<"Total squares : "<<square1.get_total()<<endl;
-cout<<"Total squares : "<<info :: get_total()<<endl;
+emp e("Haris");
+emp e1("Ali ");
+emp e2("Ali ");
+emp e3("Ali ");
+emp e4("Ali ");
+emp e5("Ali ");
+emp e6("Ali ");
 
-// now for square 2 
-info square2(10);
+e.print();
+e1.print();
 
-cout<<"Area  : "<<square2.area()<<endl;
-cout<<"Width : "<<square2.width()<<endl;
+cout<<"Total object : "<<emp  ::getcount()<<endl;
 
 
-// we have to ways to call static member fun 
-cout<<"Total squares : "<<square2.get_total()<<endl;
-cout<<"Total squares : "<<info :: get_total()<<endl;
+
+
 
 
 
 return 0;
 }
+
+
+
+// 
+
+class test {
+private:
+int wid;
+int len;
+static int count;
+
+public:
+
+test(int len ,int wid)  : len(len) , wid(wid){
+count++;
+}
+
+~test(){
+count--;
+}
+
+
+int getlen(){
+return len;
+}
+
+int getwid(){
+return wid;
+}
+
+
+void setlen(int len){
+this->len=len;
+}
+
+void setwid(int wid){
+this->wid=wid;
+}
+
+static int getcount(){
+return count;
+}
+
+int area(){
+return len+wid;
+}
+
+int width(){
+return len*wid;
+}
+
+void print(){
+cout<<"Area "<<area()<<endl;
+cout<<"Width "<<width()<<endl;
+}
+
+};
+
+int test :: count=0;
+
+
+
+int main()
+
+{
+test t1(5,5);
+
+t1.print();
+cout<<"COunt :"<<test :: getcount()<<endl;
+
+test t2(5,5);
+
+t1.print();
+cout<<"COunt :"<<test :: getcount()<<endl;
+
+
+return 0;
+}
+
+
+*/
+
+
+
+class animal {
+private:
+string name;
+static int count;
+
+public:
+
+animal(string name) : name(name){
+count++;
+}
+
+~animal(){
+count--;
+}
+
+static int getcount(){
+return count;
+}
+
+
+string  getname(){
+return name;
+}
+
+
+
+
+};
+
+
+int animal :: count=0;
+
+
+int main(){
+animal *lion=new animal("Sheery ");
+animal *cat=new animal("meow");
+
+ 
+cout<<"Lion Name :"<<lion->getname()<<endl;
+cout<<"Cat Name :"<<cat->getname()<<endl;
+cout<<"Total  :"<<animal :: getcount()  <<endl;
+
+
+delete lion;
+delete cat;
+
+
+cout<<"Total  :"<<animal :: getcount() <<endl;
+
+
+
+
+return 0;
+}
+
+
+
+
 

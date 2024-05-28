@@ -1,32 +1,36 @@
 #include<iostream>
 #include<string>
-
 using namespace std;
 
-struct array 
-{
- int  age[10];
-  string name[4][10];
+/*
+struct info {
+
+string name;
+string city ;
+int age;
+
+
+info(string name,string city,int age) : name(name) , city(city) , age(age){}
+
+void print(string name,string city,int age);
+
 };
 
-int main()
-{
-array name1;
 
-int i;
+void info ::  print(string name, string city,int age){
+cout<<"Name : "<<name<<endl;
+cout<<"City : " <<city<<endl;
+cout<<"Age  : "<<age<<endl;
+}
 
-for(i=1;i<=3;i++)
-   {
-   cout<<"Enter the Name : "<<i<<endl;
-   getline(cin,name1.name[i][0]);
-   cout<<"Enter the age : "<<i<<endl;
-   cin>>name1.age[i];
-   }
-   
-for(i=1;i<=3;i++)
-  {
-   cout<<"Name : "<<name1.name[i][0]<<" & Age : "<<name1.age[i]<<endl;
-   }
+int main(){
+
+
+info p1("Haris","ISB",20);
+
+p1.print(p1.name,p1.city,p1.age);
+
+
 return 0;
 }
 
@@ -34,4 +38,43 @@ return 0;
 
 
 
+*/
+// here am doing using array 
+
+struct data {
+string name[2];
+
+
+
+data(string name) {
+for(int i=0;i<2;i++){
+name[i]=name[i];
+}
+}
+
+
+void print(string name[2]){
+cout<<"Student Name : "<<endl;
+for(int i=0;i<2;i++){
+cout<<"Name :"<<name[i]<<endl;
+}
+}
+};
+
+
+int main(){
+data p;
+
+string name;
+
+for(int i=0;i<2;i++){
+cout<<"Enter the name :"<<endl;
+cin>>p.name[i];
+}
+
+void print();
+
+
+return 0;
+}
 
