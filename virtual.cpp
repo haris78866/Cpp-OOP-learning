@@ -2,61 +2,77 @@
 #include<string>
 using namespace std;
 
-class Account{
+
+class A {
+
 public:
-    string name;
 
-    // Constructor 
-    Account(string n) : name(n) {
-    }
+A(){
+}
 
-    virtual void display(){
-        cout << "Name: " << name << endl;
-    }
+void show(){
+cout<<"Class A "<<endl;
+}
+
+
 };
 
-class checking : public virtual Account {
-public:
-    double amount;
 
-    checking(string n, double a) : Account(n), amount(a) {
-    }
+class B :  public   virtual  A {
+public: 
 
-    void display()  {
-        Account::display();
-        cout << "Amount: " << amount << endl;
-    }
+B(){
+}
+
+void show(){
+A :: show();
+cout<<"Class B "<<endl;
+}
+
 };
 
-class saving : public virtual Account {
-public:
-    double sav;
 
-    // Corrected the constructor initialization list
-    saving(string n, double a, double s) : Account(n), amount(a), sav(s) {
-    }
+class C  : public virtual A {
 
-    void display() override {
-        checking::display();
-        cout << "Saving: " << sav << endl;
-    }
+public: 
+
+C(){
+}
+
+
+void show(){
+A  :: show();
+cout<<"Class C "<<endl;
+}
+
 };
 
-class Final : public checking, public saving {
-public:
-    // Corrected the constructor initialization list
-    Final(string n, double a, double s) : Account(n), checking(n, a), saving(n, a, s) {
-    }
 
-    void display() override {
-        saving::display(); // Removed extra curly braces
-    }
+class D : public B , public C {
+public: 
+
+D(){
+}
+
+void show(){
+B :: show();
+cout<<"Class D "<<endl;
+}
+
 };
+
+
+
 
 int main(){
-    // Changed to create an instance of Final to demonstrate diamond inheritance
-    Final finalAccount("Haris", 200, 300);
-    finalAccount.display();
-    return 0;
+
+
+D d;
+
+
+
+d.show();
+
+return 0;
 }
 

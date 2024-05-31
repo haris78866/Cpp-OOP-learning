@@ -2,40 +2,76 @@
 #include<string>
 using namespace std;
 
-class student {
-public:
+class base {
+protected:
 string name;
-string grade;
-int roll;
-float cgpa;
+int code;
+public:
 
-// constucter
-
-student(string n,string g,int r,float cg) : name(n),grade(g),roll(r),cgpa(cg) {
+base(){
+cout<<"Defauly is called :"<<endl;
 }
 
-void display(){
-cout<<"Name  :"<<name<<endl;
-cout<<"Grade :"<<grade<<endl;
-cout<<"Roll no :"<<roll<<endl;
-cout<<"CGPA : "<<cgpa<<endl;
+
+base(string name,int code)  : name(name ) ,  code(code) {
+cout<<"cnstructer  is called :"<<endl;
+}
+
+//getter
+
+
+
+void setname(string name){
+this->name=name;
+}
+
+void setcode(int code){
+this->code=code;
+}
+
+
+void show(){
+cout<<"Name : "<<name<<endl;
+cout<<"Zip Code :"<<code<<endl;
 }
 
 };
 
 
-class BSc : public student {
-private: 
-string project;
-string gradyear;
+class derived : public base {
+private :
+string car_name;
 
-BSc (string n,string g , int r,float cg, string pro,string grad) : student(n,g,r,cg) , project(pro),gradyear(grad)
-{}
+public :
 
-void display(){
-student :: display();
-cout<<"Project : " <<project<<endl;
-cout<<"Grad Year :"<<gradyear<<endl;
+derived(string name ,int code , string car) : base(name,code), car_name(car){
+}
+
+
+// getter 
+
+string getcar_name(){
+return car_name;
+}
+
+string getname(){
+return name;
+}
+
+int getcode(){
+return code;
+}
+
+// setters 
+
+void setname(string car_name){
+this->car_name=car_name;
+}
+
+
+void show(){
+base :: show();
+cout<<"Car :"<<car_name<<endl;
 }
 };
 
@@ -43,8 +79,12 @@ cout<<"Grad Year :"<<gradyear<<endl;
 
 int main(){
 
-BSc p("Haris","A+",0573,2.71,"Game","2027");
-p.display();
+base d("Haris",55651);
+
+d.show();
+
+
+
 
 return 0;
 }
