@@ -16,7 +16,7 @@ public:
 Data(string name,string city,int age ) : name(name) , city(city) , age(age){
 }
 
-// default constructer 
+// default constructer   important 
 Data() : name(""), city(""), age(0){
 }
 
